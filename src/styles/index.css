@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #ffffff;
+  --color-foreground: #000000;
+  --color-primary: #2563eb;
+  --color-primary-foreground: #ffffff;
+}
+
+@layer base {
+  [data-theme="dark"] {
+    --color-background: #1f2937;
+    --color-foreground: #e5e7eb;
+    --color-primary: #3b82f6;
+    --color-primary-foreground: #ffffff;
+  }
+
+  [data-theme="ocean"] {
+    --color-background: #0e1c2f;
+    --color-foreground: #cbd5e1;
+    --color-primary: #38bdf8;
+    --color-primary-foreground: #0e1c2f;
+  }
+
+  [data-theme="warm"] {
+    --color-background: #fffaf0;
+    --color-foreground: #422006;
+    --color-primary: #fbbf24;
+    --color-primary-foreground: #422006;
+  }
+}
+
+@keyframes glassFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+html, body {
+  overflow-y: hidden;
+  background-color: #0e1c2f;
+}
