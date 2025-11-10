@@ -1,8 +1,9 @@
-import { useState } from "react"
-import { SocialsModal } from "./SocialsModal"
+import React, { lazy, Suspense, useState } from "react"
 import { CaretDownOutlined } from "@ant-design/icons"
 
-export const Header = () => {
+const SocialsModal = lazy(() => import("./SocialsModal"))
+
+const Header = () => {
   const [socialsOpened, setSocialsOpened] = useState<boolean>(false)
   const closeSocials = () => setSocialsOpened(false)
 
@@ -33,13 +34,16 @@ export const Header = () => {
               <CaretDownOutlined />
             </div>
           </div>
-          {socialsOpened 
-            ? (<div className="fixed top-20">
+          {socialsOpened && (
+            <div className="fixed top-20">
+              <Suspense fallback={<h3>Loading...</h3>}>
                 <SocialsModal open={socialsOpened} onClose={closeSocials}/>
-              </div>) 
-            : null}
+              </Suspense>
+            </div>)}
         </div>
       </div>
     </header>
   )
 }
+
+export const MemoHeader = React.memo(Header);

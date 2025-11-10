@@ -29,7 +29,7 @@ export const FloatMenu = () => {
               exit={{ scale: 0, x: 0, y: 0, opacity: 0 }}
               transition={{ type: "spring", stiffness: 260, damping: 20 }}
               className="
-                absolute w-12 h-12 rounded-full bg-white/20 backdrop-blur-md 
+                absolute w-12 h-12 rounded-full bg-white/20
                 border-b border-r border-white/30 text-white shadow-lg
                 hover:border-b-0 hover:border-r-0 hover:bg-white/40 hover:border-t hover:border-l transition-colors duration-200
               "
@@ -43,7 +43,7 @@ export const FloatMenu = () => {
       <motion.button
         onClick={() => setMenuOpen(!menuOpen)}
         whileTap={{ scale: 0.9 }}
-        className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-white shadow-lg"
+        className="w-12 h-12 rounded-full bg-white/20 border border-white/30 text-white shadow-lg"
       >
         {menuOpen ? "×" : "+"}
       </motion.button>
@@ -57,7 +57,6 @@ export const FloatMenu = () => {
             exit={{ opacity: 0 }}
             className="
               fixed inset-0 
-              backdrop-blur-md
               flex items-center justify-center 
               z-50
             "

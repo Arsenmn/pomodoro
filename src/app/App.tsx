@@ -1,4 +1,4 @@
-import { Header } from "../components/Header/Header"
+import { MemoHeader } from "../components/Header/Header"
 import Main from "../components/Main"
 import { useBackground } from "../hooks/useBackground.hook"
 
@@ -16,7 +16,7 @@ function App() {
       style={backgroundLogic}
     >
       <header className="pt-2">
-        <Header/>
+        <MemoHeader/>
       </header>
       <Main />
     </div>

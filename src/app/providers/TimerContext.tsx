@@ -1,44 +1,37 @@
 import { createContext, useEffect, useState, type ReactNode } from "react"
 
 type TTimerContext = {
-  timerColor: string | null
+  timerColor: string
   setTimerColor: (color: string) => void
-  timerBgColor: string | null
+  timerBgColor: string
   setTimerBgColor: (color: string) => void
 }
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const TimerContext = createContext<TTimerContext | undefined>(undefined)
 
-export const TimerProvider = ({children}: {children: ReactNode}) => {
-  const [timerColor, setTimerColor] = useState<string | null>(() => {
-    const savedTimerColor = localStorage.getItem("timerColor")
-    return savedTimerColor && savedTimerColor !== "null" ? savedTimerColor : null;
-  })
-  const [timerBgColor, setTimerBgColor] = useState<string | null>(() => {
-    const savedTimerBgColor = localStorage.getItem("timerBgColor")
-    return savedTimerBgColor && savedTimerBgColor !== "null" ? savedTimerBgColor : null;
+export const TimerProvider = ({ children }: { children: ReactNode }) => {
+  // Provide a safe default color if nothing is in localStorage
+  const [timerColor, setTimerColor] = useState<string>(() => {
+    const saved = localStorage.getItem("timerColor")
+    return saved && saved !== "null" ? saved : "#ffffff" // default white
   })
 
-  
-  useEffect(() => {
-    if(timerBgColor) {
-      localStorage.setItem("timerBgColor", timerBgColor)
-    } else {
-      localStorage.removeItem("timerBgColor")
-    }
-  }, [timerBgColor])
+  const [timerBgColor, setTimerBgColor] = useState<string>(() => {
+    const saved = localStorage.getItem("timerBgColor")
+    return saved && saved !== "null" ? saved : "rgba(255,255,255,0.1)" // default transparent white
+  })
 
   useEffect(() => {
-    if(timerColor) {
-      localStorage.setItem("timerColor", timerColor)
-    } else {
-      localStorage.removeItem("timerColor")
-    }
+    localStorage.setItem("timerColor", timerColor)
   }, [timerColor])
 
+  useEffect(() => {
+    localStorage.setItem("timerBgColor", timerBgColor)
+  }, [timerBgColor])
+
   return (
-    <TimerContext.Provider value={{timerColor, setTimerColor, timerBgColor, setTimerBgColor}}>
+    <TimerContext.Provider value={{ timerColor, setTimerColor, timerBgColor, setTimerBgColor }}>
       {children}
     </TimerContext.Provider>
   )

@@ -13,7 +13,7 @@ interface SocialLink {
   link: string;
 }
 
-export const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => {
+const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -56,7 +56,7 @@ export const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => 
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="absolute top-1 w-[180px] rounded-xl p-3 shadow-lg space-y-3 z-50 bg-white/10 backdrop-blur-md border border-white/20"
+          className="absolute top-1 w-[180px] rounded-xl p-3 shadow-lg space-y-3 z-50 bg-white/10 border border-white/20"
         >
           {socials.map(({ name, logo, link }) => (
             <li key={name} className="list-none group rounded-md">
@@ -79,3 +79,5 @@ export const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => 
     </AnimatePresence>
   );
 };
+
+export default SocialsModal;
