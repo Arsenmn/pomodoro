@@ -1,10 +1,11 @@
 import { createContext, useEffect, useState, type ReactNode } from "react"
 
-type TTimerContext = {
+export type TTimerContext = {
   timerColor: string
-  setTimerColor: (color: string) => void
+  setTimerColor: React.Dispatch<React.SetStateAction<string>>
   timerBgColor: string
-  setTimerBgColor: (color: string) => void
+  setTimerBgColor: React.Dispatch<React.SetStateAction<string>>
+  type?: "timer" | "bg"
 }
 
 // eslint-disable-next-line react-refresh/only-export-components

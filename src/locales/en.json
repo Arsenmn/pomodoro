@@ -1,0 +1,25 @@
+{
+  "timer": {
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "focus": "Focus",
+    "shortBreak": "Short Break",
+    "longBreak": "Long Break"
+  },
+  "header": {
+    "pomodoro": "POMODORO TIMER",
+    "me": "By Arsen Yergali"
+  },
+  "edit": {
+    "customize": "Customize",
+    "background": "Background",
+    "theme": "Theme",
+    "timer": "Timer",
+    "chooseBg": "Choose Background Image",
+    "timerColor": "Timer Color",
+    "timerBgColor": "Timer Background Color"
+  },
+  "settings": "Settings",
+  "loading": "Loading..."
+}

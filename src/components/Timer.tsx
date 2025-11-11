@@ -3,8 +3,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useTimer } from "../hooks/useTimer.hook";
 import TimerText from "./TimerText";
 import ModeButton from "./Modebuttons";
+import { useTranslation } from "react-i18next";
 
 export const Timer = () => {
+  const { t } = useTranslation()
+
   const { timerColor, timerBgColor } = useTimer()
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
@@ -28,9 +31,9 @@ useEffect(() => {
   const seconds = secondsLeft % 60;
 
   const modeButtons = [
-    {title: "Short Break", time: 300, fromColor: "teal", x: -30, y: -10},
-    {title: "Focus", time: 1500, fromColor: "red", x: 0, y: -10},
-    {title: "Long Break", time: 600, fromColor: "green", x: 30, y: -10},
+    {title: t("timer.shortBreak"), time: 300, fromColor: "teal", x: -30, y: -10},
+    {title: t("timer.focus"), time: 1500, fromColor: "red", x: 0, y: -10},
+    {title: t("timer.longBreak"), time: 600, fromColor: "green", x: 30, y: -10},
   ]
 
   return (
@@ -77,7 +80,7 @@ useEffect(() => {
         transition={{ type: "spring", stiffness: 300 }}
         className="py-2 px-4 rounded-full bg-linear-to-br from-white/80 to-white/70 border-t border-l border-white/40 text-shadow-black shadow-lg mr-1"
       >
-        {isRunning ? "Pause" : "Start"}
+        {isRunning ? t("timer.pause") : t("timer.start")}
       </motion.button>
 
       <motion.button
@@ -87,7 +90,7 @@ useEffect(() => {
         transition={{ type: "spring", stiffness: 300 }}
         className="py-2 px-4 rounded-full bg-linear-to-br from-black/80 to-black/80 border-t border-l border-white/40 text-white shadow-lg ml-1"
       >
-        Reset
+        {t("timer.reset")}
       </motion.button>
     </div>
   );

@@ -1,7 +1,8 @@
 import { lazy, Suspense, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion";
 import { EditOutlined, SettingOutlined } from "@ant-design/icons";
-import { SettingsModal } from "./SettingsModal";
+import Loader from "../Loader";
+import SettingsModal from "./SettingsModal";
 
 export const FloatMenu = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
@@ -69,7 +70,7 @@ export const FloatMenu = () => {
               transition={{ type: 'spring', stiffness: 200, damping: 20 }}
               onClick={(e) => e.stopPropagation()} // prevent closing when clicking modal
             >
-              {modalOpen === 2 ? <SettingsModal /> : <Suspense fallback={<p className="text-gray-700 text-4xl">Loading...</p>}><EditModal /></Suspense>}
+              {modalOpen === 2 ? <SettingsModal /> : <Suspense fallback={<Loader />}><EditModal /></Suspense>}
             </motion.div>
           </motion.div>
         </AnimatePresence>

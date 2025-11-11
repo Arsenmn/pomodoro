@@ -3,8 +3,6 @@ import Main from "../components/Main"
 import { useBackground } from "../hooks/useBackground.hook"
 
 
-
-
 function App() {
   const { background } = useBackground()
 

@@ -1,5 +1,7 @@
 import React, { lazy, Suspense, useState } from "react"
 import { CaretDownOutlined } from "@ant-design/icons"
+import Loader from "../Loader"
+import { t } from "i18next"
 
 const SocialsModal = lazy(() => import("./SocialsModal"))
 
@@ -23,22 +25,22 @@ const Header = () => {
     ">
       <div className="flex flex-row items-center justify-between mx-10 pt-7">
         <h4 className="font-bold text-3xl text-white">
-          POMODORO TIMER
+          {t("header.pomodoro")}
         </h4>
         <div className="flex flex-col">
           <div
             className="flex flex-row gap-2 font-bold text-xl text-white"
           >
-            By Arsen Yergali
+            {t("header.me")}
             <div onClick={() => setSocialsOpened(!socialsOpened)} className="cursor-pointer">
               <CaretDownOutlined />
             </div>
           </div>
           {socialsOpened && (
             <div className="fixed top-20">
-              <Suspense fallback={<h3>Loading...</h3>}>
-                <SocialsModal open={socialsOpened} onClose={closeSocials}/>
-              </Suspense>
+                <Suspense fallback={<h3><Loader /></h3>}>
+                  <SocialsModal open={socialsOpened} onClose={closeSocials}/>
+                </Suspense>
             </div>)}
         </div>
       </div>

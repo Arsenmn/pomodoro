@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { useBackground } from "../../hooks/useBackground.hook";
+import { t } from "i18next";
 
 export const EditBackground = () => {
   const { setBackground } = useBackground()
@@ -33,7 +34,7 @@ export const EditBackground = () => {
 
       <div className="flex flex-row justify-center gap-4">
         <label className="flex items-center justify-center w-full px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer text-sm backdrop-blur-sm">
-          <span className="truncate">Choose Background Image</span>
+          <span className="truncate">{t("edit.chooseBg")}</span>
           <input
             type="file"
             accept="image/*"
@@ -41,7 +42,7 @@ export const EditBackground = () => {
             className="hidden cursor-pointer"
             />
         </label>
-        <button onClick={() => setBackground(null)} className="flex items-center justify-center w-full px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer text-sm backdrop-blur-sm">Reset</button>
+        <button onClick={() => setBackground(null)} className="flex items-center justify-center w-full px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 border border-white/20 cursor-pointer text-sm backdrop-blur-sm">{t("timer.reset")}</button>
       </div>
     </div>
   )
