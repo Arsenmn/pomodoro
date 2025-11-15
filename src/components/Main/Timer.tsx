@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { useTimer } from "../hooks/useTimer.hook";
+import { useTimer } from "../../hooks/useTimer.hook";
 import TimerText from "./TimerText";
 import ModeButton from "./Modebuttons";
 import { useTranslation } from "react-i18next";

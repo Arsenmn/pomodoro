@@ -10,7 +10,6 @@ const SettingsModal = () => {
 
   return (
     <div className="w-[500px] p-5 rounded-2xl bg-linear-to-br from-black/60 to-black/70 backdrop-blur-md border border-white/20 shadow-xl text-white space-y-4">
-      {/* Header */}
       <div>
         <h3 className="text-lg font-semibold">{t("settings")}</h3>
         <div className="mt-1 w-full h-px bg-white/20" />

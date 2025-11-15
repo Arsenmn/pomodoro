@@ -1,5 +1,5 @@
 import { MemoHeader } from "../components/Header/Header"
-import Main from "../components/Main"
+import Main from "../components/Main/Main"
 import { useBackground } from "../hooks/useBackground.hook"
 
 

@@ -1,5 +1,5 @@
 import { Timer } from "./Timer";
-import { FloatMenu } from "./FloatMenu/FloatMenu";
+import { FloatMenu } from "../FloatMenu/FloatMenu";
 
 
 const Main = () => {

@@ -18,7 +18,6 @@ export const FloatMenu = () => {
 
   return (
     <div className="fixed bottom-6 right-6">
-      {/* Menu Buttons */}
       <AnimatePresence>
         {menuOpen &&
           menuItems.map(item => (
@@ -40,7 +39,6 @@ export const FloatMenu = () => {
           ))}
       </AnimatePresence>
 
-      {/* Main Button */}
       <motion.button
         onClick={() => setMenuOpen(!menuOpen)}
         whileTap={{ scale: 0.9 }}
