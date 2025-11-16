@@ -1,4 +1,8 @@
-import { GithubOutlined, InstagramOutlined, WhatsAppOutlined } from "@ant-design/icons";
+import {
+  GithubOutlined,
+  InstagramOutlined,
+  WhatsAppOutlined,
+} from "@ant-design/icons";
 import React, { useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -67,8 +71,9 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => {
                 className="
                   group relative flex items-center gap-3 rounded-md pl-4 sm:pl-5 py-2 transition-all border-transparent overflow-hidden text-white
                   hover:bg-white/15 hover:border-t hover:border-l hover:border-white/20
-                  hover:bg-gradient-to-br from-white/5 to-white/20
-                ">
+                  hover:bg-linear-to-br from-white/5 to-white/20
+                "
+              >
                 {logo}
                 <p className="">{name}</p>
               </a>
@@ -81,3 +86,4 @@ const SocialsModal: React.FC<SocialsModalProps> = ({ open, onClose }) => {
 };
 
 export default SocialsModal;
+

@@ -1,10 +1,12 @@
-import { useState } from "react"
-import { EditBackground } from "../EditModal/EditBackground"
-import { EditTimer } from "../EditModal/EditTimer"
-import { t } from "i18next"
+import { useState } from "react";
+import { EditBackground } from "../EditModal/EditBackground";
+import { EditTimer } from "../EditModal/EditTimer";
+import { t } from "i18next";
 
 const EditModal = () => {
-  const [activeTab, setActiveTab] = useState<"background" | "timer">("background")
+  const [activeTab, setActiveTab] = useState<"background" | "timer">(
+    "background"
+  );
 
   return (
     <div className="w-[500px] p-5 rounded-2xl bg-linear-to-br from-black/60 to-black/70 backdrop-blur-md border border-white/20 shadow-xl text-white space-y-4">
@@ -19,8 +21,8 @@ const EditModal = () => {
             key={tab}
             onClick={() => setActiveTab(tab as "background" | "timer")}
             className={`cursor-pointer transition-colors ${
-              activeTab === tab 
-                ? "text-white border-b-2 border-white"  
+              activeTab === tab
+                ? "text-white border-b-2 border-white"
                 : "text-gray-400 hover:text-gray-200"
             }`}
           >
@@ -31,7 +33,7 @@ const EditModal = () => {
       {activeTab === t("edit.background") && <EditBackground />}
       {activeTab === t("edit.timer") && <EditTimer />}
     </div>
-  )
-}
+  );
+};
 
-export default EditModal
+export default EditModal;

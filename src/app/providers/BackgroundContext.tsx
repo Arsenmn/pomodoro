@@ -1,4 +1,3 @@
-// src/context/BackgroundContext.tsx
 import { createContext, useEffect, useState, type ReactNode } from "react";
 
 export interface BackgroundContextType {

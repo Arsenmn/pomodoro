@@ -15,5 +15,10 @@ export const useSettingsModal = () => {
     setIsSettingsModalOpen(false);
   };
 
-  return { isSettingsModalOpen, showSettingsModal, handleSettingsCancel, handleSettingsOk }
-}
+  return {
+    isSettingsModalOpen,
+    showSettingsModal,
+    handleSettingsCancel,
+    handleSettingsOk,
+  };
+};

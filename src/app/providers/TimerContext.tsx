@@ -12,15 +12,14 @@ export type TTimerContext = {
 export const TimerContext = createContext<TTimerContext | undefined>(undefined)
 
 export const TimerProvider = ({ children }: { children: ReactNode }) => {
-  // Provide a safe default color if nothing is in localStorage
   const [timerColor, setTimerColor] = useState<string>(() => {
     const saved = localStorage.getItem("timerColor")
-    return saved && saved !== "null" ? saved : "#ffffff" // default white
+    return saved && saved !== "null" ? saved : "#ffffff" 
   })
 
   const [timerBgColor, setTimerBgColor] = useState<string>(() => {
     const saved = localStorage.getItem("timerBgColor")
-    return saved && saved !== "null" ? saved : "rgba(255,255,255,0.1)" // default transparent white
+    return saved && saved !== "null" ? saved : "rgba(255,255,255,0.1)" 
   })
 
   useEffect(() => {

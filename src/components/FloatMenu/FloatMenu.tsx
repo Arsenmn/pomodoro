@@ -1,26 +1,25 @@
-import { lazy, Suspense, useState } from "react"
+import { lazy, Suspense, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { EditOutlined, SettingOutlined } from "@ant-design/icons";
 import Loader from "../Loader";
 import SettingsModal from "./SettingsModal";
 
 export const FloatMenu = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const [modalOpen, setModalOpen] = useState<number | null>(null)
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<number | null>(null);
 
   const menuItems = [
     { id: 1, label: <EditOutlined />, x: 0, y: -120 },
     { id: 2, label: <SettingOutlined />, x: 0, y: -60 },
   ];
 
-  const EditModal = lazy(() => import('./EditModal'))
-
+  const EditModal = lazy(() => import("./EditModal"));
 
   return (
     <div className="fixed bottom-6 right-6">
       <AnimatePresence>
         {menuOpen &&
-          menuItems.map(item => (
+          menuItems.map((item) => (
             <motion.button
               key={item.id}
               onClick={() => setModalOpen(item.id)}
@@ -47,7 +46,6 @@ export const FloatMenu = () => {
         {menuOpen ? "×" : "+"}
       </motion.button>
 
-
       {modalOpen && (
         <AnimatePresence>
           <motion.div
@@ -59,20 +57,26 @@ export const FloatMenu = () => {
               flex items-center justify-center 
               z-50
             "
-            onClick={() => setModalOpen(null)} // close on outside click if you want
+            onClick={() => setModalOpen(null)} 
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-              onClick={(e) => e.stopPropagation()} // prevent closing when clicking modal
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+              onClick={(e) => e.stopPropagation()} 
             >
-              {modalOpen === 2 ? <SettingsModal /> : <Suspense fallback={<Loader />}><EditModal /></Suspense>}
+              {modalOpen === 2 ? (
+                <SettingsModal />
+              ) : (
+                <Suspense fallback={<Loader />}>
+                  <EditModal />
+                </Suspense>
+              )}
             </motion.div>
           </motion.div>
         </AnimatePresence>
       )}
     </div>
   );
-}
+};

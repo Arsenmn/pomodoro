@@ -15,5 +15,5 @@ export const useEditModal = () => {
     setIsEditModalOpen(false);
   };
 
-  return { isEditModalOpen, showEditModal, handleEditCancel, handleEditOk }
-}
+  return { isEditModalOpen, showEditModal, handleEditCancel, handleEditOk };
+};

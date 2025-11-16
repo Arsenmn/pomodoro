@@ -1,4 +1,3 @@
-// src/hooks/useBackground.ts
 import { useContext } from "react";
 import { BackgroundContext } from "../app/providers/BackgroundContext";
 
@@ -9,4 +8,3 @@ export const useBackground = () => {
   }
   return context;
 };
-

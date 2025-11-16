@@ -6,35 +6,46 @@ import ModeButton from "./Modebuttons";
 import { useTranslation } from "react-i18next";
 
 export const Timer = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  const { timerColor, timerBgColor } = useTimer()
+  const { timerColor, timerBgColor } = useTimer();
   const [secondsLeft, setSecondsLeft] = useState(25 * 60);
   const [isRunning, setIsRunning] = useState(false);
-  const [modesOpen, setModesOpen] = useState<boolean>(false)
+  const [modesOpen, setModesOpen] = useState<boolean>(false);
 
-useEffect(() => {
-  if (!isRunning) return;
+  useEffect(() => {
+    if (!isRunning) return;
 
-  const interval = setInterval(() => {
-    setSecondsLeft(prev => (prev > 0 ? prev - 1 : 0));
-  }, 1000);
+    const interval = setInterval(() => {
+      setSecondsLeft((prev) => (prev > 0 ? prev - 1 : 0));
+    }, 1000);
 
-  return () => clearInterval(interval);
-}, [isRunning]);
+    return () => clearInterval(interval);
+  }, [isRunning]);
 
-
-  const toggleTimer = () => setIsRunning(prev => !prev);
+  const toggleTimer = () => setIsRunning((prev) => !prev);
   const resetTimer = () => setSecondsLeft(25 * 60);
 
   const minutes = Math.floor(secondsLeft / 60);
   const seconds = secondsLeft % 60;
 
   const modeButtons = [
-    {title: t("timer.shortBreak"), time: 300, fromColor: "teal", x: -30, y: -10},
-    {title: t("timer.focus"), time: 1500, fromColor: "red", x: 0, y: -10},
-    {title: t("timer.longBreak"), time: 600, fromColor: "green", x: 30, y: -10},
-  ]
+    {
+      title: t("timer.shortBreak"),
+      time: 300,
+      fromColor: "teal",
+      x: -30,
+      y: -10,
+    },
+    { title: t("timer.focus"), time: 1500, fromColor: "red", x: 0, y: -10 },
+    {
+      title: t("timer.longBreak"),
+      time: 600,
+      fromColor: "green",
+      x: 30,
+      y: -10,
+    },
+  ];
 
   return (
     <div className="text-center">
@@ -59,7 +70,7 @@ useEffect(() => {
         </AnimatePresence>
       </div>
 
-      <div 
+      <div
         className="
           px-3 mb-5 rounded-3xl border-b-2
           bg-linear-to-tl from-white/5 to-white/20
@@ -68,9 +79,13 @@ useEffect(() => {
           transition-all duration-500
           cursor-pointer"
         onClick={() => setModesOpen(!modesOpen)}
-        style={{ backgroundColor: timerBgColor ?? 'white/40' }}
+        style={{ backgroundColor: timerBgColor ?? "white/40" }}
       >
-        <TimerText minutes={minutes} seconds={seconds} timerColor={timerColor}/>
+        <TimerText
+          minutes={minutes}
+          seconds={seconds}
+          timerColor={timerColor}
+        />
       </div>
 
       <motion.button
@@ -94,4 +109,4 @@ useEffect(() => {
       </motion.button>
     </div>
   );
-}
+};
